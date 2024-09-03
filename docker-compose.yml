@@ -1,0 +1,87 @@
+version: '3'
+
+networks:
+  second_app:
+
+services:
+  app:
+    build:
+      context: ./dockerfiles
+      dockerfile: nginx.dockerfile
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/var/www/html:delegated
+    depends_on:
+      - php
+      - postgres
+    networks:
+      - second_app
+
+  postgres:
+    container_name: postgres_container
+    image: postgres
+    environment:
+      POSTGRES_DATABASE: test
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - second_app
+    restart: unless-stopped
+
+  php:
+    build:
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
+    ports:
+      - "9000:9000"
+    depends_on:
+      - postgres
+    volumes:
+      - ./src:/var/www/html:delegated
+    networks:
+      - second_app
+
+  composer:
+    build:
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - php
+    entrypoint: [ 'composer', '--ignore-platform-reqs' ]
+    networks:
+      - second_app
+
+  bash:
+    build:
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
+    entrypoint: [ 'php', '/var/www/html/']
+    depends_on:
+      - postgres
+    volumes:
+      - ./src:/var/www/html:delegated
+    networks:
+      - second_app
+
+volumes:
+  postgres:

@@ -1,0 +1,13 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Api\\": "Api",
+      "Repository\\": "Repository",
+      "Interfaces\\": "Interfaces",
+      "Entities\\": "Entities",
+      "Db\\": "Db",
+      "IphoneRepository\\": "Repository/IphoneRepository",
+      "IphoneInterface\\": "Interfaces/IphoneInterface"
+    }
+  }
+}
