@@ -8,8 +8,9 @@ $baseDir = dirname($vendorDir);
 return array(
     'Repository\\' => array($baseDir . '/Repository'),
     'IphoneRepository\\' => array($baseDir . '/Repository/IphoneRepository'),
-    'IphoneInterface\\' => array($baseDir . '/Interfaces/IphoneInterface'),
     'Interfaces\\' => array($baseDir . '/Interfaces'),
+    'IIphoneRepository\\' => array($baseDir . '/Interfaces/IphoneInterface'),
+    'Factories\\' => array($baseDir . '/Factories'),
     'Entities\\' => array($baseDir . '/Entities'),
     'Db\\' => array($baseDir . '/Db'),
     'Api\\' => array($baseDir . '/Api'),

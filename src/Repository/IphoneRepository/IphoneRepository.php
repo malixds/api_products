@@ -3,9 +3,9 @@
 namespace Repository\IphoneRepository;
 
 use Entities\Iphone;
-use Interfaces\IphoneInterface\IphoneInterface;
+use Interfaces\IphoneInterface\IIphoneRepository;
 
-class IphoneRepository implements IphoneInterface
+class IphoneRepository implements IIphoneRepository
 {
     protected Iphone $iphone;
     protected const TABLE = 'iphones';
@@ -15,15 +15,15 @@ class IphoneRepository implements IphoneInterface
         $this->iphone = new Iphone();
     }
 
-    public function find()
+    public function find($id): false|array
     {
-        $sql = "SELECT * FROM " . self::TABLE . " WHERE id = 1";
+        $sql = "SELECT * FROM " . self::TABLE . " WHERE id = :id";
         $statement = $this->iphone->pdo->prepare($sql);
-        $statement->execute();
+        $statement->execute([':id' => $id]);
         return $statement->fetchAll();
     }
 
-    public function get()
+    public function get(): false|\PDOStatement
     {
         $sql = "SELECT * FROM " . self::TABLE;
         $statement = $this->iphone->pdo->prepare($sql);

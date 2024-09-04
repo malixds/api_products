@@ -7,7 +7,8 @@
       "Entities\\": "Entities",
       "Db\\": "Db",
       "IphoneRepository\\": "Repository/IphoneRepository",
-      "IphoneInterface\\": "Interfaces/IphoneInterface"
+      "IIphoneRepository\\": "Interfaces/IphoneInterface",
+      "Factories\\": "Factories"
     }
   }
 }

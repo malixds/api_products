@@ -14,8 +14,12 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         'I' => 
         array (
             'IphoneRepository\\' => 17,
-            'IphoneInterface\\' => 16,
             'Interfaces\\' => 11,
+            'IIphoneRepository\\' => 18,
+        ),
+        'F' => 
+        array (
+            'Factories\\' => 10,
         ),
         'E' => 
         array (
@@ -40,13 +44,17 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         array (
             0 => __DIR__ . '/../..' . '/Repository/IphoneRepository',
         ),
-        'IphoneInterface\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/Interfaces/IphoneInterface',
-        ),
         'Interfaces\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Interfaces',
+        ),
+        'IIphoneRepository\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Interfaces/IphoneInterface',
+        ),
+        'Factories\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Factories',
         ),
         'Entities\\' => 
         array (
