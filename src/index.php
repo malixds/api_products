@@ -1,8 +1,6 @@
 <?php
 
-use Api\IphoneApi;
 use Factories\ProductFactory;
-use Repository\IphoneRepository\IphoneRepository;
 require __DIR__ . '/vendor/autoload.php';
 
 $URL = 'https://dummyjson.com/products/search?q=phone';
@@ -18,5 +16,3 @@ try {
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();
 }
-
-var_dump($productOne);

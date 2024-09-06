@@ -10,5 +10,8 @@
       "IIphoneRepository\\": "Interfaces/IphoneInterface",
       "Factories\\": "Factories"
     }
+  },
+  "require": {
+    "ext-pdo": "*"
   }
 }
